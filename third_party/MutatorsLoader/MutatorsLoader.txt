@@ -1,0 +1,13 @@
+MutatorsLoader mod
+
+Load list of your "Always use" mutators everywhere (include campaign ladder), except network play on other servers
+
+Configure:
+Edit MutatorsLoader.ini file
+
+Local use:
+After each load UT use Mod menu for activate loader. After that you can play any map (include campaign ladder) with your mutator list (except network play on other servers OFC)
+Not activate it if wanna play on ACE servers - ACE kick you.
+You need reload UT if wanna play on ACE servers if at least once activate loader during this UT run.
+
+For edit mutator list - start practice session with configured mutator list and turned on "Always use" checkbox.
