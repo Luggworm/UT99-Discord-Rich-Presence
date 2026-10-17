@@ -6,7 +6,7 @@
 
 **Bring the arena to your Discord profile.**
 
-A community-made companion for **Unreal Tournament (1999)** with live match information, map artwork, campaign progress, and character portraits.
+A community-made companion for **Unreal Tournament (1999)** with live match information, map artwork, campaign progress, and game-mode-specific statistics.
 
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white) ![Platform](https://img.shields.io/badge/Platform-Windows-0078D4) ![UT99](https://img.shields.io/badge/UT99-v469f%20Preview-tested-333333) ![License](https://img.shields.io/badge/Code%20license-MIT-green)
 
@@ -24,9 +24,9 @@ A community-made companion for **Unreal Tournament (1999)** with live match info
 | **Automatic connection** | Uses the project's shared Discord application — no developer account or manual Application ID needed |
 | **Map artwork** | Artwork for 69 classic Deathmatch, CTF, Domination and Assault maps |
 | **Game modes** | Deathmatch, Team Deathmatch, Last Man Standing, CTF, Domination, Assault, Monster Hunt, BunnyTrack, Rocket Arena UT and more |
-| **Live match information** | Frags, deaths, player/bot counts and game-mode limits where reported by the bridge |
+| **Mode-specific statistics** | Deathmatch frags/deaths; LMS lives/frags; CTF and Domination scores; Monster Hunt lives/hunters/monsters; Rocket Arena wins/flawless; BunnyTrack run timer; Assault time |
 | **Tournament campaign** | Character creation/continue screens, tutorials, stage progress and selected save-slot difficulty |
-| **Character portrait** | Selected `User.ini` face as a small Discord image when that asset is available |
+| **Gameplay logo** | `ut99-icon` as the small Discord image during matches; hidden on main menus |
 | **Timers** | Continuous Discord session timer; separate match timer resets for new matches |
 | **Main menu** | Animated UT99 artwork while not in a match |
 
@@ -93,14 +93,28 @@ Tournament mode does not ordinarily carry Practice Session mutators into ladder 
 
 MutatorsLoader is a separate project and **not covered by this repository's MIT license**. Its supplied files do not establish redistribution permission. **Before publishing this repository publicly, obtain permission to redistribute the loader binary or remove `third_party/MutatorsLoader/` and link to an authorized source instead.** See its original `MutatorsLoader.txt` for instructions.
 
-## Character portraits and map assets
+## Discord images and map assets
 
-- Map artwork remains the **large** Discord image.
-- The selected character face is read from `System/User.ini` → `[DefaultPlayer]` → `Face=` and becomes the **small** image when a matching asset key is registered.
-- Currently configured face: `CommandoSkins.Grail` → `face-commandoskins-grail`.
-- Additional portraits must be uploaded to the relevant Discord application's assets and added to `FACE_ASSET_KEYS` in `ut99_presence.py`.
+- **Large image:** Classic map artwork, or the shared gamemode image for supported custom modes.
+- **Small image:** The `ut99-icon` Discord asset during gameplay. No small image is shown on the main menu.
+- **Character face portraits are no longer supported.** The companion does not read or display player face assets.
 - Special map keys: `DM-Deck16` → `deck16-fixed`, `CTF-Face][` → `ctf-face2`.
-- Asset updates on Discord may take time to propagate.
+- Discord may cache Rich Presence assets after changes.
+
+## Live statistics by game mode (v3.31)
+
+| Mode | Rich Presence information |
+| --- | --- |
+| Deathmatch / Team Deathmatch | Frags and deaths |
+| Last Man Standing | Remaining lives / maximum lives and frags |
+| Capture the Flag | Score |
+| Domination | Score |
+| Assault | Match time |
+| Monster Hunt | Lives, hunters and monsters; **time remaining** on map hover |
+| Rocket Arena UT | Wins and flawless wins |
+| BunnyTrack | Run timer |
+
+The bridge reads the relevant game data and forwards it to the local companion. Some values depend on the installed game mode or mod version. The project creator confirmed the above modes working in-game with the v3.31 test build. The native Discord elapsed timer continues to measure the full UT99 session independently of match/run timers.
 
 ## Troubleshooting
 
@@ -110,7 +124,7 @@ MutatorsLoader is a separate project and **not covered by this repository's MIT 
 | Discord presence missing | Ensure desktop Discord is running; check any custom `discord_app_id.txt` override. |
 | No map or score updates | Check that `UT99Presence.u` compiled and the mutator is enabled; look for `Bridge:` messages. |
 | Map image shows the UT99 logo | Compare `IMAGE DEBUG` asset keys against those uploaded to the selected Discord application; allow for caching. |
-| Face portrait missing | Check `[DefaultPlayer] Face=` in `User.ini`, `FACE DEBUG`, and `FACE_ASSET_KEYS`. |
+| Small gameplay logo missing | Confirm that `ut99-icon` is uploaded as an asset to the configured Discord application. The logo is intentionally hidden in menus. |
 | Incorrect campaign difficulty | Confirm the slot number in `campaign_save_slot.txt` and the `User.ini` path shown in the console. |
 | `ucc make` fails | Verify `EditPackages=UT99Presence`, source folder placement, and any old compiled `.u` file. |
 
@@ -119,7 +133,8 @@ MutatorsLoader is a separate project and **not covered by this repository's MIT 
 ```text
 UT99Presence/Classes/       UnrealScript bridge, mutator and reset menu
 third_party/MutatorsLoader/  Optional third-party campaign loader (license separate)
-assets/                      Repository icon
+assets/                      UT99 icon / repository artwork
+CHANGELOG.md                 Release history
 ut99_presence.py             Python companion
 start.bat                    Windows launcher
 requirements.txt             Python dependencies
@@ -127,6 +142,10 @@ campaign_save_slot.txt       Selected campaign save slot
 UT99Presence.int             UT99 registration file
 LICENSE                      License for original project code
 ```
+
+## Version history
+
+See [CHANGELOG.md](CHANGELOG.md) for the v3.31 update and previous release notes.
 
 ## Credits and license
 
