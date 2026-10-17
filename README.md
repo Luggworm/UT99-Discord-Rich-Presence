@@ -14,7 +14,7 @@ A community-made companion for **Unreal Tournament (1999)** with live match info
 
 </div>
 
-📜 [View Changelog](CHANGELOG.md)
+
 > [!NOTE]
 > Unofficial fan project. Not affiliated with Epic Games, OldUnreal, or Discord. Tested by the project creator with UT99 v469f Preview; other builds may work but have not been verified.
 
@@ -32,6 +32,8 @@ A community-made companion for **Unreal Tournament (1999)** with live match info
 | **Main menu** | Animated UT99 artwork while not in a match |
 
 The companion talks to the UT99 UnrealScript bridge over **local-only UDP** (`127.0.0.1:29777`). No hosted gameplay service or bot token is needed.
+
+📜 [View Changelog](CHANGELOG.md)
 
 ## Requirements
 
