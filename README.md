@@ -146,7 +146,7 @@ LICENSE                      License for original project code
 
 ## Version history
 
-📜 [View Changelog](CHANGELOG.md) for the v3.31 update and previous release notes.
+📜 [View Changelog](CHANGELOG.md) for the v1.1.0 update and previous release notes.
 
 ## Credits and license
 
