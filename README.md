@@ -33,8 +33,6 @@ A community-made companion for **Unreal Tournament (1999)** with live match info
 
 The companion talks to the UT99 UnrealScript bridge over **local-only UDP** (`127.0.0.1:29777`). No hosted gameplay service or bot token is needed.
 
-📜 [View Changelog](CHANGELOG.md)
-
 ## Requirements
 
 - Windows 10 or 11
@@ -148,7 +146,7 @@ LICENSE                      License for original project code
 
 ## Version history
 
-See [CHANGELOG.md](CHANGELOG.md) for the v3.31 update and previous release notes.
+📜 [View Changelog](CHANGELOG.md) for the v3.31 update and previous release notes.
 
 ## Credits and license
 
