@@ -2,7 +2,7 @@
 
 All notable changes to UT99 Discord Rich Presence are documented here.
 
-## [3.31] — Game-mode statistics and gameplay logo
+## [1.1.0] — Game-mode statistics and gameplay logo
 
 ### Added
 - **Last Man Standing:** remaining lives, maximum lives, and frags; maximum lives shown on map hover.
@@ -31,7 +31,7 @@ All notable changes to UT99 Discord Rich Presence are documented here.
 - The project creator confirmed working in-game behavior for Deathmatch, Team Deathmatch, Last Man Standing, Monster Hunt, Rocket Arena UT, BunnyTrack, Capture the Flag, Domination, and Assault.
 - Third-party mod compatibility may vary with different mod builds.
 
-## [3.30] — Character face support (superseded)
+## [1.0.0] — Character face support (superseded)
 
 - Added selected character-face detection from `User.ini` for Discord Rich Presence.
-- **Superseded by v3.31:** character portraits have been removed in favor of a consistent UT99 gameplay logo.
+- **Superseded by v1.0.0:** character portraits have been removed in favor of a consistent UT99 gameplay logo.
